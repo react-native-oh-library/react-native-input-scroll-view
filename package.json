@@ -16,6 +16,9 @@
   "bugs": {
     "url": "https://github.com/react-native-oh-library/react-native-input-scroll-view/issues"
   },
+  "harmony": {
+    "alias": "react-native-input-scroll-view"
+  },
   "homepage": "https://github.com/react-native-oh-library/react-native-input-scroll-view#readme",
   "dependencies": {
     "prop-types": "^15.7.2",
