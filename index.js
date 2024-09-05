@@ -19,6 +19,8 @@ import {
 } from 'react-native';
 
 const isIOS = Platform.OS === 'ios';
+const isHarmony = Platform.OS === 'harmony';
+
 
 let debounce;
 
@@ -120,7 +122,7 @@ export default class extends PureComponent {
       ...otherProps
     } = this.props;
 
-    const kavProps = Object.assign({ behavior: isIOS ? 'padding' : null }, keyboardAvoidingViewProps);
+    const kavProps = Object.assign({ behavior: isIOS || isHarmony ? 'padding' : null }, keyboardAvoidingViewProps);
 
     const {
       measureInputVisible,
@@ -295,11 +297,11 @@ export default class extends PureComponent {
     const scrollResponder = this._root && this._root.getScrollResponder();
     if (!scrollResponder) return;
 
-    UIManager.viewIsDescendantOf(
-      curFocusTarget,
-      scrollResponder.getInnerViewNode(),
-      (isAncestor) => {
-        if (!isAncestor) return;
+    // UIManager.viewIsDescendantOf(
+    //   curFocusTarget,
+    //   scrollResponder.getInnerViewNode(),
+    //   (isAncestor) => {
+    //     if (!isAncestor) return;
 
         const { text, selectionEnd, width, height } = this._getInputInfo(curFocusTarget);
         const cursorAtLastLine = !text ||
@@ -320,8 +322,8 @@ export default class extends PureComponent {
             );
           }
         );
-      }
-    );
+    //   }
+    // );
   };
 
   _scrollToKeyboard = (target, offset) => {
@@ -384,7 +386,6 @@ export default class extends PureComponent {
       }
 
       if (!isIOS) return;
-
       inputInfo.onFocusRequireScroll = true;
       setTimeout(() => {
         // 如果 onSelectionChange 没有触发，则在这里执行
