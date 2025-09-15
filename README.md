@@ -1,6 +1,6 @@
-# @react-native-oh-tpl/react-native-input-scroll-view
+# @react-native-ohos/react-native-input-scroll-view
 
-This project is based on [react-native-input-scroll-view](https://github.com/baijunjie/react-native-input-scroll-view)
+This project is based on [react-native-input-scroll-view@1.11.0](https://github.com/baijunjie/react-native-input-scroll-view/tree/master)
 
 ## Documentation
 
